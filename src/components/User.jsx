@@ -1,36 +1,35 @@
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import { fetchAllUsers } from "../services/userService"
 
 const Users = () => {
     const [users, setUsers] = useState([])
+    const [loading, setLoading] = useState(false)
 
     async function peticion(){
         const json = await fetchAllUsers()
         setUsers(json)
-        console.log('se ha llamado a peticion')
     }
-
-    useEffect( ()=>{ 
+    
+    useEffect( () => {
+        setLoading(true)
         peticion()
-    } ,  [] )
+        setLoading(false)
+        const programmer = setInterval(peticion, 2000)
+        return () => clearInterval(programmer)
+    }, [])
 
-    useEffect( ()=>{
-        setInterval( peticion ,   2000  )
-    } ,  [] )
-
-
+    if(loading) return <div>Loading...</div>
+    if(users.length==0) return 'No hay usuarios'
+ 
     return (
         <>
             <h1>Lista de usuarios del chat</h1>
             <div>
-                {
-                users.map(user => 
-                    <div key={user._id}>{user.name} - {user.email}</div>
-                )
-                }
+                {users.map(user=><div key={user._id}>{user.name} - {user.email}</div>)}
             </div>
-
         </>
+        
     )
+
 }
 export default Users

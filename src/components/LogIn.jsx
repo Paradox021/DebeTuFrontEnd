@@ -1,36 +1,31 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { addNewUser } from "../services/userService"
+import { logIn } from "../services/userService"
 
-const AddUser = () => {
-    const [name, setName] = useState()
+const LogIn = () => {
     const [email, setEmail] = useState()
     const [pass, setPass] = useState()
-    const navigate = useNavigate()
  
 
     const handleSubmit = async(e)=>{
         e.preventDefault()
-        const response = await addNewUser(name, email, pass)
-        if(!response.ok) console.log('error en la peticion')
-        else navigate('/users')
+        const response = await logIn(email, pass)
+        if(!response.ok) console.log('error en el log in')
+        else localStorage.setItem("token", (await response.json()).token);
     }
 
     return (
         <>
-            <h1>Registrarse</h1>
+            <h1>Iniciar sesion</h1>
             <form className="flex flex-col gap-3" action="">
-                <label htmlFor="name">name:</label>
-                <input type="text" name="name" value={name} onChange={(e)=>setName(e.target.value)}/>
                 <label htmlFor="email">email:</label>
                 <input type="text" name="email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
                 <label htmlFor="password">password:</label>
                 <input type="password" name="pass" value={pass} onChange={(e)=>setPass(e.target.value)}/>
-                <button type="submit" onClick={handleSubmit}>Enviar</button>
+                <button type="submit" onClick={handleSubmit}>Log in</button>
             </form>
         </>
         
     )
 
 }
-export default AddUser
+export default LogIn
