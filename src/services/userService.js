@@ -4,6 +4,17 @@ async function fetchAllUsers(){
     return await response.json()
 }
 
+async function fetchMyUser(){
+    
+    const response = await fetch('http://localhost:3000/users/myUser/', {
+        method:'GET',
+        headers:{
+            'Authorization': `bearer ${localStorage.getItem("token")}`,
+        }
+    })
+    return response
+}
+
 async function addNewUser(name, email, pass){
     const response = await fetch('http://localhost:3000/users/', {
         method:'POST',
@@ -30,4 +41,4 @@ async function logIn(email, pass){
     return response
 
 }
-export {fetchAllUsers, addNewUser, logIn}
+export {fetchAllUsers, addNewUser, logIn, fetchMyUser}

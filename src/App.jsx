@@ -6,6 +6,7 @@ import Greetings from './components/Greetings'
 import Messages from './components/Message.jsx'
 import Navbar from './components/Navbar'
 import Users from './components/User'
+import MyUser from './components/MyUser'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path='/users' element={<Users/>}></Route>
         <Route path='/adduser' element={<AddUser/>}></Route>
         <Route path='/logIn' element={<LogIn/>}></Route>
+        <Route path='/myUser' element={<MyUser/>}></Route>
       </Routes>
     </BrowserRouter>
   )
