@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { fetchMyUser } from "../services/userService"
 
 const MyUser = () => {
-    const [user, setUser] = useState([])
+    const [user, setUser] = useState({})
     const [loading, setLoading] = useState(false)
 
     async function peticion(){

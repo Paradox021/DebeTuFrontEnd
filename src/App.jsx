@@ -7,6 +7,8 @@ import Messages from './components/Message.jsx'
 import Navbar from './components/Navbar'
 import Users from './components/User'
 import MyUser from './components/MyUser'
+import MyCreditors from './components/MyCreditors'
+import MyDebtors from './components/MyDebtors'
 
 function App() {
 
@@ -20,6 +22,8 @@ function App() {
         <Route path='/adduser' element={<AddUser/>}></Route>
         <Route path='/logIn' element={<LogIn/>}></Route>
         <Route path='/myUser' element={<MyUser/>}></Route>
+        <Route path='/myDebtors' element={<MyDebtors/>}></Route>
+        <Route path='/myCreditors' element={<MyCreditors/>}></Route>
       </Routes>
     </BrowserRouter>
   )

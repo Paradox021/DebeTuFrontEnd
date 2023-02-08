@@ -13,7 +13,7 @@ const LogIn = () => {
         const response = await logIn(email, pass)
         if(!response.ok) console.log('error en el log in')
         else{
-            navigate('/chat')
+            navigate('/myuser')
             localStorage.setItem("token", (await response.json()).token);
         } 
     }
