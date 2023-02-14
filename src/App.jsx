@@ -1,14 +1,14 @@
 import { BrowserRouter, Route, Routes} from 'react-router-dom'
 import './App.css'
-import AddUser from './components/AddUser'
-import LogIn from './components/LogIn'
-import Greetings from './components/Greetings'
-import Messages from './components/Message.jsx'
+import AddUser from './pages/AddUser'
+import LogIn from './pages/LogIn'
+import Greetings from './pages/Greetings'
+import Messages from './pages/Message.jsx'
 import Navbar from './components/Navbar'
-import Users from './components/User'
-import MyUser from './components/MyUser'
-import MyCreditors from './components/MyCreditors'
-import MyDebtors from './components/MyDebtors'
+import Users from './pages/User'
+import MyUser from './pages/MyUser'
+import MyCreditors from './pages/MyCreditors'
+import MyDebtors from './pages/MyDebtors'
 
 function App() {
 

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { logIn } from "../services/userService"
-import Button  from "./Button"
+import Button  from "../components/Button"
 
 const LogIn = () => {
     const [email, setEmail] = useState()

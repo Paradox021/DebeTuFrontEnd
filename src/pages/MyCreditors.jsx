@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import ConnectToCreditor from "./ConnectToCreditor"
+import ConnectToCreditor from "../components/ConnectToCreditor"
+import Debts from "../components/Debts";
 
 
 const MyCreditors = () => {
@@ -35,9 +36,7 @@ const MyCreditors = () => {
             <h2>
               Acreedor: {creditor.creditor.name} ({creditor.creditor.email})
             </h2>
-            <ul>
-                {creditor.Debts.map((debt) => (<li key={debt._id}> deuda: {debt.concept} {debt.amount}</li>))}
-            </ul>
+            <Debts debts = {creditor.debts}></Debts>
           </li>
         ))}
       </ul>
