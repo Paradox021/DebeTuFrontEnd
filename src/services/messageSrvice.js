@@ -1,10 +1,10 @@
 async function fetchAllMessages(){
-    const response = await fetch('http://localhost:3000/message/')
+    const response = await fetch(import.meta.env.VITE_BACKEND+'/message/')
     return await response.json()
 }
 
 async function addNewMessage(msg){
-    const response = await fetch('http://localhost:3000/message/', {
+    const response = await fetch(import.meta.env.VITE_BACKEND+'/message/', {
         method:'POST',
         headers:{
             'content-Type':'application/json'

@@ -10,7 +10,7 @@ const MyDebtors = () => {
     useEffect(() => {
         const fetchingUsers = async () => {
             //const data = await getMyDebtors()
-            const data = await fetch('http://localhost:3000/connection/myDebtors/', {
+            const data = await fetch(import.meta.env.VITE_BACKEND+'/connection/myDebtors/', {
                 method:'GET',
                 headers:{
                 'Authorization': `bearer ${localStorage.getItem("token")}`,
@@ -25,7 +25,7 @@ const MyDebtors = () => {
 
 
     async function handleRemoveDebt(idDebt, idConnection){
-      const response = await fetch(`http://localhost:3000/connection/removeDebt/${idConnection}/${idDebt}`, 
+      const response = await fetch(import.meta.env.VITE_BACKEND+`/connection/removeDebt/${idConnection}/${idDebt}`, 
       {
           method:'DELETE',
           headers:{
@@ -44,7 +44,7 @@ const MyDebtors = () => {
     const handleSubmit = async(e, idConnection, concept, amount)=>{
       e.preventDefault()
       console.log(idConnection)
-      const response = await fetch('http://localhost:3000/connection/addDebt/'+idConnection, {
+      const response = await fetch(import.meta.env.VITE_BACKEND+'/connection/addDebt/'+idConnection, {
       method:'POST',
       headers:{
           'content-Type':'application/json',

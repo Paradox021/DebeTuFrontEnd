@@ -11,7 +11,7 @@ const MyCreditors = () => {
     useEffect(() => {
         const token = localStorage.getItem("token");
         const fetchingCreditors = async () => {
-          const request = await fetch('http://localhost:3000/connection/myCreditors',
+          const request = await fetch(import.meta.env.VITE_BACKEND+'/connection/myCreditors',
           {
             method: "GET",
             headers: {

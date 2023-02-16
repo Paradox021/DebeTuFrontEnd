@@ -3,7 +3,7 @@ import { useState } from "react"
 const ConnectToCreditor = () => {
     const [email, setEmail] = useState()
     async function connect(){
-        const response = await fetch('http://localhost:3000/connection/connectToCreditor/'+email, {
+        const response = await fetch(import.meta.env.VITE_BACKEND+'/connection/connectToCreditor/'+email, {
             method:'POST',
             headers:{
                 'Authorization': `bearer ${localStorage.getItem("token")}`,
